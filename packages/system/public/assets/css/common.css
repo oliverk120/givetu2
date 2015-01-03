@@ -1,3 +1,127 @@
+/*!
+ * Bootstrap v2.1.1
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+.bg {
+    background-color:#333;
+}
+/* Pages */
+.pages ol {
+    margin-left:50px;
+}
+/* Dropdown menus on home page*/
+
+.select-container {
+    display:inline-block;
+    height: 40px;
+    margin: 0;
+    position:relative;
+}
+#jqdrop.select {
+    list-style: none;
+    color: #ee3925;
+    border: 1px solid #ee3925;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    position: absolute;
+    background:#FFF;
+    width:inherit;
+    margin:12px 0;
+    font-size:20px;
+}
+#jqdrop.select li {
+    min-width: 100px;
+    padding:0 10px;
+    height: 30px;
+    line-height: 30px;
+    border: 0px solid #FFF;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    text-align:left;
+}
+#jqdrop.select li {
+    display: none;
+}
+#jqdrop.select li.current {
+    display:block;
+    background: #FFF url(http://givetu.me/img/dropdown.png) no-repeat 95%;
+}
+#jqdrop.select.active li {
+    display: block;
+}
+#jqdrop.select li.current {
+    cursor: pointer;
+    font-size:22px;
+    text-align:center;
+}
+#jqdrop.select li:hover {
+    cursor: pointer;
+    color:#ff976e;
+}
+#jqdrop.select li.current:hover {
+    color:#ff976e;
+}
+.value {
+    display:none;
+}
+.active {
+    z-index:9999
+}
+#to_age {
+    width:130px;
+}
+#to_relationship {
+    width:180px;
+}
+#to_price {
+    width:130px;
+}
+.placeholder {
+    font-weight:normal;
+    font-style:italic;
+}
+/* Facebook Popup*/
+#fbpopupdiv {
+    position:absolute;
+    display:none;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    position:fixed;
+    margin:0;
+    overflow-y:auto;
+    z-index:99999;
+    text-align:center;
+}
+#fbpopup {
+    background-color: #fff;
+    overflow:none;
+    z-index:999999;
+}
+.fbpopup {
+    width:400px;
+    position:fixed;
+    top:45%;
+    left:50%;
+    margin-top:-200px;
+    margin-left:-200px;
+    border: 2px solid #333;
+    padding: 20px;
+    z-index:999999;
+}
+
+
+
+/* SCAFFOLD */
+
 .page-header {
     padding-bottom: 0 !important;
     margin: 0 !important;

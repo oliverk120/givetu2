@@ -1,0 +1,56 @@
+<section data-ng-controller="GiftsController">
+
+  <form name="giftForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(giftForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && giftForm.title.$invalid }">
+      <label mean-token="'create-title'" class="col-md-3 control-label">Title</label>
+      <div class="col-md-9">
+        <input name="name" type="text" class="form-control" data-ng-model="name" id="name" placeholder="Gift Name" required>
+        <div ng-show="submitted && giftForm.name.$invalid" class="help-block">
+          <p ng-show="giftForm.name.$error.required">Name is required</p>
+        </div>
+      </div>
+
+      <label mean-token="'create-image'" class="col-md-3 control-label">Image</label>
+      <div class="col-md-9">
+        <input name="image" type="text" class="form-control" data-ng-model="image" id="image" placeholder="Image" >
+      </div>
+      
+      <label mean-token="'create-amazonid'" class="col-md-3 control-label">Amazonid</label>
+      <div class="col-md-9">
+        <input name="amazonid" type="text" class="form-control" data-ng-model="amazonid" id="amazonid" placeholder="Amazonid" >
+      </div>
+      
+      <label mean-token="'create-description'" class="col-md-3 control-label">Description</label>
+      <div class="col-md-9">
+        <input name="description" type="text" class="form-control" data-ng-model="description" id="description" placeholder="Description" >
+      </div>
+      
+      <label mean-token="'create-price'" class="col-md-3 control-label">Price</label>
+      <div class="col-md-9">
+        <input name="price" type="text" class="form-control" data-ng-model="price" id="price" placeholder="Price" >
+      </div>
+      
+      <label mean-token="'create-togender'" class="col-md-3 control-label">Togender</label>
+      <div class="col-md-9">
+        <input name="togender" type="text" class="form-control" data-ng-model="togender" id="togender" placeholder="Togender" >
+      </div>
+      
+      <label mean-token="'create-agemin'" class="col-md-3 control-label">Agemin</label>
+      <div class="col-md-9">
+        <input name="agemin" type="text" class="form-control" data-ng-model="agemin" id="agemin" placeholder="Agemin" >
+      </div>
+      
+            <label mean-token="'create-agemax'" class="col-md-3 control-label">Agemax</label>
+      <div class="col-md-9">
+        <input name="agemax" type="text" class="form-control" data-ng-model="agemax" id="agemax" placeholder="Agemax" >
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button mean-token="'create-submit'" type="submit" class="btn btn-info">Submit</button>
+      </div>
+    </div>
+  </form>
+
+</section>

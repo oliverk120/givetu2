@@ -18,8 +18,8 @@ Gifts.register(function(app, auth, database) {
 
   //We are adding a link to the main menu for all authenticated users
   Gifts.menus.add({
-    title: 'gifts example page',
-    link: 'gifts example page',
+    title: 'Gifts',
+    link: 'list gifts',
     roles: ['authenticated'],
     menu: 'main'
   });
