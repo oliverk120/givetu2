@@ -1,23 +1,37 @@
 'use strict';
 
 /* jshint -W098 */
-angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams','Global', 'Gifts',
-  function($scope, $stateParams, Global, Gifts) {
+angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$state','Global', 'Gifts',
+  function($scope, $stateParams, $state, Global, Gifts) {
     $scope.global = Global;
     $scope.package = {
       name: 'gifts'
     };
 
     $scope.submit = function(){
-    	$scope.submitted = true;
+
+    	$scope.submitted = [$scope.torelationship];
     };
 
     $scope.find = function(){
-
       Gifts.query(function(gifts) {
         
         $scope.gifts = gifts;
       });
+    };
+
+    //finder applies the filter and displays only gifts that match
+    $scope.finder = function(){
+      
+      var query = {
+        minprice:8
+      };
+
+      Gifts.query(query, function(gifts) {
+        
+        $scope.gifts = gifts;
+      });
+      $state.go('finder gifts');
     };
 
     $scope.create = function(isValid) {

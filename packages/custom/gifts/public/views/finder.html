@@ -1,0 +1,25 @@
+<section data-ng-controller="GiftsController" data-ng-init="finder()">
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>To Gender</th>
+    <th>Age Minimum</th>
+    <th>Age Maxiumum</th>
+    <th>User</th>
+  </tr>
+  <tr ng-repeat="gift in gifts">
+    <td><a href="#!/gifts/{{gift._id}}">{{gift.name}}</a></td>
+    <td>{{gift.image}}</td>
+    <td>{{gift.description}}</td>
+    <td>{{gift.price}}</td>
+    <td>{{gift.togender}}</td>
+    <td>{{gift.agemin}}</td>
+    <td>{{gift.agemax}}</td>
+    <td>{{gift.user}}</td>
+    <td><a data-ng-click="remove(gift);"><i class="glyphicon glyphicon-trash"></i></a></td>
+  </tr>
+</table>
+</section>

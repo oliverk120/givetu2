@@ -15,7 +15,9 @@ exports.gift = function(req, res, next, id) {
 };
 
 exports.all = function(req, res) {
-  Gift.find().sort('-created').populate('user', 'name username').exec(function(err, gifts) {
+  //console.log(req);
+  req.query = {price:{$gt:7}};
+  Gift.find(req.query).sort('-created').populate('user', 'name username').exec(function(err, gifts) {
     if (err) {
       return res.json(500, {
         error: 'Cannot list the gifts'
@@ -24,6 +26,7 @@ exports.all = function(req, res) {
     res.json(gifts);
   });
 };
+
 
 exports.show = function(req, res){
   res.json(req.gift);

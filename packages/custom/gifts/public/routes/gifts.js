@@ -27,6 +27,10 @@ angular.module('mean.gifts').config(['$stateProvider',
       url: '/gifts',
       templateUrl: 'gifts/views/index.html'
     })
+    .state('finder gifts', {
+      url: '/gifts/finder',
+      templateUrl: 'gifts/views/finder.html'
+    })
     .state('create gifts', {
     	url: '/gifts/create',
     	templateUrl: 'gifts/views/create.html'

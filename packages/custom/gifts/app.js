@@ -22,7 +22,14 @@ Gifts.register(function(app, auth, database) {
     link: 'list gifts',
     roles: ['authenticated'],
     menu: 'main'
-  });
+  })
+  .add({
+    title: 'Finder',
+    link: 'finder gifts',
+    roles: ['authenticated'],
+    menu: 'main'
+  })
+  ;
   
   Gifts.aggregateAsset('css', 'gifts.css');
 
