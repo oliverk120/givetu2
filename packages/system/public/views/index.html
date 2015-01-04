@@ -17,20 +17,20 @@
               Submitted: {{submitted}}
               <h1 class="home"><span>I need a gift for my&nbsp;</span>
             
-                <select name="torelationship" class="input-medium" ng-model="torelationship">
+                <select name="togender" class="input-medium" ng-model="togender">
                 <option value=""></option>
-                <option value="{{relationship.name}}" ng-repeat="relationship in options.relationship">{{relationship.name}}</option>
+                <option value="{{relationship.gender}}" ng-repeat="relationship in options.relationship">{{relationship.name}}</option>
               </select> 
             
               <span>for&nbsp;$</span>
 
-              <select name="price" class="input-small" id="price">
+              <select name="price" class="input-small" id="price" ng-model="price">
               <option value=""></option>
               <option value="{{price.value}}" ng-repeat="price in options.price">{{price.name}}</option>
             </select> 
 
             <span>. It should be</span>
-              <select name="level" class="input-medium" id="level">
+              <select name="level" class="input-medium" id="level" ng-model="level" >
               <option value=""></option>
               <option value="{{level.name}}" ng-repeat="level in options.level">{{level.name}}</option>
             </select> 

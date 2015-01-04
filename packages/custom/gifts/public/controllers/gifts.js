@@ -10,25 +10,47 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
 
     $scope.submit = function(){
 
-    	$scope.submitted = [$scope.torelationship];
+    	$scope.submitted = [$scope.togender];
     };
 
     $scope.find = function(){
       Gifts.query(function(gifts) {
-        
+
         $scope.gifts = gifts;
       });
     };
 
     //finder applies the filter and displays only gifts that match
     $scope.finder = function(){
+      //default query values
+      var query = {};
       
-      var query = {
-        minprice:8
-      };
+      //if price range was specified
+      if('price' in $scope){
+        if($scope.price.indexOf('-') > -1){
+          var price = $scope.price.split('-');
+          if(price[0]>0){
+          //if there is a min price, add it to the query
+          query.minprice = price[0];
+        }
+        if(price[1]<10000000){
+          //if there is a max price, add it to the query
+          query.maxprice = price[1];
+        }
+      }
+    }
 
+      //if 'to relationship' was specified
+      if($scope.togender){
+        query.togender = $scope.togender;
+      }
+
+      //if 'level' was specified
+      if($scope.level){
+        query.level = $scope.level;
+      }
       Gifts.query(query, function(gifts) {
-        
+
         $scope.gifts = gifts;
       });
       $state.go('finder gifts');
@@ -48,7 +70,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
           agemax: this.agemax
         });
         gift.$save(function(response) {
-          console.log(gift);
+          //console.log(gift);
         });
         this.title = '';
         this.content = '';

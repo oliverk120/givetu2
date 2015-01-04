@@ -16,8 +16,25 @@ exports.gift = function(req, res, next, id) {
 
 exports.all = function(req, res) {
   //console.log(req);
-  req.query = {price:{$gt:7}};
-  Gift.find(req.query).sort('-created').populate('user', 'name username').exec(function(err, gifts) {
+  var query = {}; 
+  //if a level was specified, add it to the query
+  if('level' in req.query){
+    query.level = req.query.level;
+  }
+
+  //if a 'to relationship' was specified, add it to the query
+  if('togender' in req.query){
+    query.togender = req.query.togender;
+  }
+
+  if('minprice' in req.query){
+    query.minprice = {$gt: req.query.minprice};
+  }
+
+  if('maxprice' in req.query){
+    query.maxprice = {$lt: req.query.maxprice};
+  }
+  Gift.find(query).sort('-created').populate('user', 'name username').exec(function(err, gifts) {
     if (err) {
       return res.json(500, {
         error: 'Cannot list the gifts'

@@ -6,10 +6,10 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
  
 $scope.options = {
   relationship:{
-    girlfriend:{name:'Girlfriend'},
-    boyfriend:{name:'Boyfriend'},
-    wife:{name:'Wife'},
-    husband:{name:'Husband'}
+    girlfriend:{name:'Girlfriend', gender:'F'},
+    boyfriend:{name:'Boyfriend', gender:'M'},
+    wife:{name:'Wife', gender:'F'},
+    husband:{name:'Husband', gender:'M'}
   },
   price:{
     price1:{name:'<20', value:'0-20'},
