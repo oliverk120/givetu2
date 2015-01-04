@@ -43,6 +43,22 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
       }
     };
 
+    $scope.update = function(isValid) {
+      if (isValid) {
+        var gift = $scope.gift;
+        if (!gift.updated) {
+          gift.updated = [];
+        }
+        gift.updated.push(new Date().getTime());
+
+        gift.$update(function() {
+          //$location.path('gifts/' + gift._id);
+        });
+      } else {
+        $scope.submitted = true;
+      }
+    };
+
     $scope.remove = function(gift) {
 
       if (gift) {

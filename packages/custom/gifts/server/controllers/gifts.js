@@ -1,7 +1,8 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Gift = mongoose.model('Gift');
+  Gift = mongoose.model('Gift'),
+  _ = require('lodash');
 
 exports.gift = function(req, res, next, id) {
  	Gift.load(id, function(err, gift) {
@@ -36,6 +37,22 @@ exports.create = function(req, res) {
     if (err) {
       return res.json(500, {
         error: 'Cannot save the gift'
+      });
+    }
+    res.json(gift);
+
+  });
+};
+
+exports.update = function(req, res) {
+  var gift = req.gift;
+
+  gift = _.extend(gift, req.body);
+
+  gift.save(function(err) {
+    if (err) {
+      return res.status(500).json({
+        error: 'Cannot update the gift'
       });
     }
     res.json(gift);
