@@ -18,9 +18,9 @@ $scope.options = {
     price4:{name:'+200', value:'201-10000000'}
   },
   level:{
-    low:{name:'normal'},
-    medium:{name:'cheesy'},
-    high:{name:'very cheesy'},
+    low:{name:'normal', value:0},
+    medium:{name:'cheesy', value:1},
+    high:{name:'very cheesy', value:2},
   }
 };
 }

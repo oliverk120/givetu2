@@ -52,6 +52,10 @@ var GiftSchema = new Schema({
     type: Number,
     required: false,
   },
+  level: {
+    type: Number,
+    required: false,
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

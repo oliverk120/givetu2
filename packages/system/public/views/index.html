@@ -14,7 +14,10 @@
 
           <div class="col-md-6">
             <form name="giftForm" class="form-horizontal" role="form" data-ng-submit="finder()" novalidate data-ng-controller="GiftsController">
-              Submitted: {{submitted}}
+              Submitted:
+              <ul>
+                <li ng-repeat="gift in gifts">{{gift.name}} price: {{gift.price}}</li>
+              </ul>
               <h1 class="home"><span>I need a gift for my&nbsp;</span>
             
                 <select name="togender" class="input-medium" ng-model="togender">
@@ -32,7 +35,7 @@
             <span>. It should be</span>
               <select name="level" class="input-medium" id="level" ng-model="level" >
               <option value=""></option>
-              <option value="{{level.name}}" ng-repeat="level in options.level">{{level.name}}</option>
+              <option value="{{level.value}}" ng-repeat="level in options.level">{{level.name}}</option>
             </select> 
 
             

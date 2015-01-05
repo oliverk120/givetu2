@@ -50,10 +50,9 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
         query.level = $scope.level;
       }
       Gifts.query(query, function(gifts) {
-
+        console.log(gifts);
         $scope.gifts = gifts;
       });
-      $state.go('finder gifts');
     };
 
     $scope.create = function(isValid) {
@@ -66,6 +65,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
           amazonid: this.amazonid,
           affiliate: 'givetu-20',
           togender: this.togender,
+          level: this.level,
           agemin: this.agemin,
           agemax: this.agemax
         });

@@ -17,6 +17,8 @@ exports.gift = function(req, res, next, id) {
 exports.all = function(req, res) {
   //console.log(req);
   var query = {}; 
+  var minprice = 0;
+  var maxprice = 10000000; 
   //if a level was specified, add it to the query
   if('level' in req.query){
     query.level = req.query.level;
@@ -28,18 +30,27 @@ exports.all = function(req, res) {
   }
 
   if('minprice' in req.query){
-    query.minprice = {$gt: req.query.minprice};
+  //if a minprice is set, replace placeholder
+    minprice = req.query.minprice;
   }
 
   if('maxprice' in req.query){
-    query.maxprice = {$lt: req.query.maxprice};
+  //if a maxprice is set, replace placeholder
+    maxprice = req.query.maxprice;
   }
+  console.log(query);
+  query.price = {$gt: minprice, $lt: maxprice};
+
+  /*TESTING the query*/
+  //query = {price: {$lt: 20}};
+
   Gift.find(query).sort('-created').populate('user', 'name username').exec(function(err, gifts) {
     if (err) {
       return res.json(500, {
         error: 'Cannot list the gifts'
       });
     }
+    console.log(gifts);
     res.json(gifts);
   });
 };
@@ -52,7 +63,6 @@ exports.show = function(req, res){
 exports.create = function(req, res) {
   var gift = new Gift(req.body);
   gift.user = req.user;
-  console.log(gift);
   gift.save(function(err) {
     if (err) {
       return res.json(500, {

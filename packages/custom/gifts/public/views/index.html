@@ -8,6 +8,7 @@
     <th>To Gender</th>
     <th>Age Minimum</th>
     <th>Age Maxiumum</th>
+    <th>Level</th>
     <th>User</th>
   </tr>
   <tr ng-repeat="gift in gifts">
@@ -18,6 +19,7 @@
     <td>{{gift.togender}}</td>
     <td>{{gift.agemin}}</td>
     <td>{{gift.agemax}}</td>
+    <td>{{gift.level}}</td>
     <td>{{gift.user}}</td>
     <td><a data-ng-click="remove(gift);"><i class="glyphicon glyphicon-trash"></i></a></td>
   </tr>
