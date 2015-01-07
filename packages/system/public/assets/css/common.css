@@ -7,6 +7,10 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
+h1{
+    line-height: 2em;
+}
+
 .bg {
     background-color:#333;
 }

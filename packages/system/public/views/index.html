@@ -1,8 +1,8 @@
-<section class="welcome container-fluid" data-ng-controller="IndexController">
+<section class="container-fluid" data-ng-controller="IndexController">
 
   <div class="wrapper">
     <div class="container">
-      <div class="row">
+      <div class="row text-center">
         <a href="/#!/">
           <img src="http://givetu.me/img/logo_03.png" width="183" height="100" alt="Find creative and unique gift ideas!" /></a>          
       </div>
@@ -14,6 +14,7 @@
 
           <div class="col-md-6 text-center">
             <form name="giftForm" class="form-horizontal" role="form" data-ng-submit="finder()" novalidate data-ng-controller="GiftsController">
+              <div class="alert alert-warning" ng-show="noGift" role="alert">Sorry! No gifts are available for this criteria at the moment</div>
               Submitted: {{list}}
               <ul>
                 <li ng-repeat="gift in gifts">{{gift.name}} price: {{gift.price}}</li>
@@ -43,10 +44,10 @@
             <hr/>
             <div class="row">
               <div class="col-md-6">
-              <button class="thumb-nav btn btn-block love-it" type="submit"> Suggest Gift    </button>
+              <button class="thumb-nav btn btn-lg btn-block love-it" type="submit"> Suggest Gift    </button>
               </div>
               <div  class="col-md-6">
-              <button class="thumb-nav btn btn-block next-it" type="submit"> Random </button>
+              <button class="thumb-nav btn btn-lg btn-block next-it" type="submit"> Random </button>
             </div>
             </div>
 

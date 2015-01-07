@@ -11,7 +11,7 @@
 			</div>
 			<div class="col-md-3 offset-md-1">
 				<div class="row text-center">
-				<a href="/pages/home">
+				<a href="#!/">
 					<img src="http://givetu.me/img/logo_03.png" class="image-responsive" alt="Find creative and unique gift ideas!" />
 				</a>
 
@@ -31,8 +31,12 @@
             <div class="col-md-3 col-md-offset-6">
               <a class="thumb-nav love-it" data-ng-href="{{gift.affiliate}}" target="_blank" rel="nofollow">i'm interested</a> 
 						</div>
-            <div class="col-md-3">
-						  <a class=" thumb-nav next-it" href="">what else</a> 
+            <div class="col-md-3" ng-show="next_id">
+						  <a class=" thumb-nav next-it" data-ng-href="#!/gifts/{{next_id}}">what else</a> 
+            </div>
+
+            <div class="col-md-3" ng-hide="next_id">
+						  <a class=" thumb-nav random-it" href ng-click="finder()">Random</a> 
             </div>
 					</div>			
 					

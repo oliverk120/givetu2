@@ -24,7 +24,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
     $scope.finder = function(){
       //default query values
       var query = {};
-      
+      $scope.noGift = false;
       //if price range was specified
       if('price' in $scope){
         if($scope.price.indexOf('-') > -1){
@@ -56,12 +56,17 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
         //load a list of id's to feed into the findOne view
         $rootScope.giftIdList = [];
         for(var item in gifts){
-          if(gifts[item].hasOwnProperty(_id)){
-            $rootScope.giftIdList.push(gifts[item]._id);
+          if(gifts[item].hasOwnProperty('_id')){
+            $rootScope.giftIdList.push({id:gifts[item]._id, image:gifts[item].image});
           }
         }
         $scope.list = $rootScope.giftIdList;
-
+        if($rootScope.giftIdList.length>0){
+          var first_id = $rootScope.giftIdList[0].id;
+          $state.go('gift by id', {giftId:first_id});
+        } else {
+          $scope.noGift = true;
+        }
       });
     };
 
@@ -124,12 +129,44 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
     };
 
     $scope.findOne = function() {
-      Gifts.get({
-        giftId: $stateParams.giftId
-      }, function(gift) {
-        $scope.gift = gift;
-      });
-    };
+      var current_id = 0;
+      //if a search has been done for gifts and a list has been loaded, then this is true
+      var gifts_loaded = $rootScope.hasOwnProperty('giftIdList');
+      $scope.next_id = 0;
+      if($stateParams.giftId.match(/^[0-9a-fA-F]{24}$/)){
+        //if a gift id is specified, load that gift
+        current_id = $stateParams.giftId;
+        //if an id has been specified AND there is a list of gifts loaded, need to determine where in the list we are
+        if(gifts_loaded){
+          for (var k = 0; k < $rootScope.giftIdList.length; k+=1) {
+            if ($rootScope.giftIdList[k].id === current_id) {
+              var j = k+1;
+              console.log('j:' +j);
+              console.log($rootScope.giftIdList);
+              console.log($rootScope.giftIdList[j]);
+              if($rootScope.giftIdList[j]){
+                $scope.next_id = $rootScope.giftIdList[j].id;
+                console.log($scope.next_id);
+              }
+            }
+          }
+        }else if(gifts_loaded){
+        //if no gift id is specified, then go to the first gift in the gift list
+        current_id = $rootScope.giftIdList[0].id;
+        if($rootScope.giftIdList[1]){
+          $scope.next_id = $rootScope.giftIdList[1].id;
+        }
+      }
+      //need to determine what the next gift will be
 
-  }
-  ]);
+    }
+
+    Gifts.get({
+      giftId: current_id
+    }, function(gift) {
+      $scope.gift = gift;
+    });
+  };
+
+}
+]);
