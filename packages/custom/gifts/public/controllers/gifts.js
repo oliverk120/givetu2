@@ -1,8 +1,8 @@
 'use strict';
 
 /* jshint -W098 */
-angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$state','Global', 'Gifts',
-  function($scope, $stateParams, $state, Global, Gifts) {
+angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$state', '$rootScope', 'Global', 'Gifts',
+  function($scope, $stateParams, $state, $rootScope, Global, Gifts) {
     $scope.global = Global;
     $scope.package = {
       name: 'gifts'
@@ -51,7 +51,17 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
       }
       Gifts.query(query, function(gifts) {
         console.log(gifts);
+        //load the gifts up into the $scope gifts variable
         $scope.gifts = gifts;
+        //load a list of id's to feed into the findOne view
+        $rootScope.giftIdList = [];
+        for(var item in gifts){
+          if(gifts[item].hasOwnProperty(_id)){
+            $rootScope.giftIdList.push(gifts[item]._id);
+          }
+        }
+        $scope.list = $rootScope.giftIdList;
+
       });
     };
 

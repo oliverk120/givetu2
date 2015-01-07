@@ -22,7 +22,7 @@
     margin: 0;
     position:relative;
 }
-#jqdrop.select {
+.jqdrop.select {
     list-style: none;
     color: #ee3925;
     border: 1px solid #ee3925;
@@ -35,37 +35,37 @@
     margin:12px 0;
     font-size:20px;
 }
-#jqdrop.select li {
+.jqdrop.select li {
     min-width: 100px;
     padding:0 10px;
     height: 30px;
     line-height: 30px;
-    border: 0px solid #FFF;
+    border: 0 solid #FFF;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
     text-align:left;
 }
-#jqdrop.select li {
+.jqdrop.select li {
     display: none;
 }
-#jqdrop.select li.current {
+.jqdrop.select li.current {
     display:block;
     background: #FFF url(http://givetu.me/img/dropdown.png) no-repeat 95%;
 }
-#jqdrop.select.active li {
+.jqdrop.select.active li {
     display: block;
 }
-#jqdrop.select li.current {
+.jqdrop.select li.current {
     cursor: pointer;
     font-size:22px;
     text-align:center;
 }
-#jqdrop.select li:hover {
+.jqdrop.select li:hover {
     cursor: pointer;
     color:#ff976e;
 }
-#jqdrop.select li.current:hover {
+.jqdrop.select li.current:hover {
     color:#ff976e;
 }
 .value {
@@ -74,13 +74,13 @@
 .active {
     z-index:9999
 }
-#to_age {
+.to_age {
     width:130px;
 }
-#to_relationship {
+.to_relationship {
     width:180px;
 }
-#to_price {
+.to_price {
     width:130px;
 }
 .placeholder {
@@ -88,20 +88,19 @@
     font-style:italic;
 }
 /* Facebook Popup*/
-#fbpopupdiv {
+.fbpopupdiv {
     position:absolute;
     display:none;
-    top:0px;
-    left:0px;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
-    position:fixed;
     margin:0;
     overflow-y:auto;
     z-index:99999;
     text-align:center;
 }
-#fbpopup {
+.fbpopup {
     background-color: #fff;
     overflow:none;
     z-index:999999;

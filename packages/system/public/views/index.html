@@ -2,19 +2,19 @@
 
   <div class="wrapper">
     <div class="container">
-      <div class="row" style="text-align:center; margin-top:70px; margin-bottom:10px;">
-        <a href="/pages/home"><img src="/img/logo_03.png" width="183" height="100" alt="Find creative and unique gift ideas!" /></a>          
+      <div class="row">
+        <a href="/#!/">
+          <img src="http://givetu.me/img/logo_03.png" width="183" height="100" alt="Find creative and unique gift ideas!" /></a>          
       </div>
       <!-- when looking at the page full screen, there will be a space between the logo and the content, this dissapears as the screen size shrinks-->
-      <div class="row visible-desktop" style="height:30px;">
-      </div>
+
       <div class="row-fluid">
-        <div class="col-md-10 pages">
+        <div class="col-md-3">
+</div>
 
-
-          <div class="col-md-6">
+          <div class="col-md-6 text-center">
             <form name="giftForm" class="form-horizontal" role="form" data-ng-submit="finder()" novalidate data-ng-controller="GiftsController">
-              Submitted:
+              Submitted: {{list}}
               <ul>
                 <li ng-repeat="gift in gifts">{{gift.name}} price: {{gift.price}}</li>
               </ul>
@@ -22,42 +22,41 @@
             
                 <select name="togender" class="input-medium" ng-model="togender">
                 <option value=""></option>
-                <option value="{{relationship.gender}}" ng-repeat="relationship in options.relationship">{{relationship.name}}</option>
+                <option ng-repeat="relationship in options.relationship" value="{{relationship.gender}}">{{relationship.name}}</option>
               </select> 
             
               <span>for&nbsp;$</span>
 
-              <select name="price" class="input-small" id="price" ng-model="price">
+              <select name="price" class="input-small" ng-model="price">
               <option value=""></option>
               <option value="{{price.value}}" ng-repeat="price in options.price">{{price.name}}</option>
             </select> 
-
-            <span>. It should be</span>
-              <select name="level" class="input-medium" id="level" ng-model="level" >
+            <br/>
+            <span> It should be</span>
+              <select name="level" class="input-medium" ng-model="level" >
               <option value=""></option>
               <option value="{{level.value}}" ng-repeat="level in options.level">{{level.name}}</option>
             </select> 
 
             
-            <span>. </span> 
           </h1>
-            <hr style="clear:both"/>
-            <div class="col-md-10" style="text-align:center">
-              <div class="col-md-6 thumb-nav find-it">
-                <input  id="find-it" style="width:100%" type="submit" value="suggest a gift"/>    </div>
-                <div class="col-md-6 thumb-nav random-it"> 
-                  <input id="random-it" type="submit" value="Random"/> 
-                </div>
-                <div class="col-md-12 hidden-phone" style="height:50px;"></div>
-</div>
+            <hr/>
+            <div class="row">
+              <div class="col-md-6">
+              <button class="thumb-nav btn btn-block love-it" type="submit"> Suggest Gift    </button>
+              </div>
+              <div  class="col-md-6">
+              <button class="thumb-nav btn btn-block next-it" type="submit"> Random </button>
+            </div>
+            </div>
 
 </form></div>
 
 
-</div>
-</div>    
+</div>   
 </div>
 <div class="push"></div>
 </div> 
+
 
 </section>
