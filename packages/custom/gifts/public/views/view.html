@@ -29,14 +29,14 @@
 					
 					<div class='row text-right'>
             <div class="col-md-3 col-md-offset-6">
-              <a class="thumb-nav love-it" data-ng-href="{{gift.affiliate}}" target="_blank" rel="nofollow">i'm interested</a> 
+              <a class="thumb-nav btn btn-lg btn-block love-it" data-ng-href="{{gift.affiliate}}" target="_blank" rel="nofollow">i'm interested</a> 
 						</div>
             <div class="col-md-3" ng-show="next_id">
-						  <a class=" thumb-nav next-it" data-ng-href="#!/gifts/{{next_id}}">what else</a> 
+						  <a class=" thumb-nav btn btn-lg btn-block next-it" data-ng-href="#!/gifts/{{next_id}}">what else</a> 
             </div>
 
             <div class="col-md-3" ng-hide="next_id">
-						  <a class=" thumb-nav random-it" href ng-click="finder()">Random</a> 
+						  <a class=" thumb-nav btn btn-lg btn-block random-it" href ng-click="finder()">Random</a> 
             </div>
 					</div>			
 					
@@ -52,10 +52,10 @@
 						
               <div class="description well">
 								<h1 class="product"> Why don't you get  this gift? </h1>
-								<h3>{{gift.name}}
+								<h3>{{gift.name}}</h3>
 
-									<small>{{gift.description}}</small> </h3>
-									<a href="/pages/shipping" id="shipping_link" target="_blank">Not in the U.S.? Read This!</a>        <div id="price">
+									<p>{{gift.description}}</p> 
+									<a href="/pages/shipping" class="shipping_link" target="_blank">Not in the U.S.? Read This!</a>        <div class="price">
 									<p>{{gift.price}}</p>
 								</div>
 							</div>

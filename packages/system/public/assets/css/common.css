@@ -14,10 +14,39 @@ h1{
 .bg {
     background-color:#333;
 }
+body{
+      font-family: SamoSans, Arial, sans-serif;
+  background-image: url(http://givetu.me/img/bg1.png);
+  background-repeat: repeat-x;
+  background-position: 0 0;
+}
+
+h3 small {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+ @font-face {
+ font-family: 'SamoSans';
+ font-weight: normal;
+ font-style: normal;
+ src: url('http://givetu.me/fonts/24C09F_0_0.eot');
+ src: url('http://givetu.me/fonts/24C09F_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/24C09F_0_0.woff') format('woff'), url('../fonts/24C09F_0_0.ttf') format('truetype');
+}
+ @font-face {
+ font-family: 'SamoSans';
+ font-weight: bold;
+ font-style: normal;
+ src: url('http://givetu.me/fonts/24C0D7_0_0.eot');
+ src: url('http://givetu.me/fonts/24C0D7_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/24C0D7_0_0.woff') format('woff'), url('../fonts/24C0D7_0_0.ttf') format('truetype');
+}
+
 /* Pages */
 .pages ol {
     margin-left:50px;
 }
+
+
 /* Dropdown menus on home page*/
 
 .select-container {
@@ -25,52 +54,6 @@ h1{
     height: 40px;
     margin: 0;
     position:relative;
-}
-.jqdrop.select {
-    list-style: none;
-    color: #ee3925;
-    border: 1px solid #ee3925;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    position: absolute;
-    background:#FFF;
-    width:inherit;
-    margin:12px 0;
-    font-size:20px;
-}
-.jqdrop.select li {
-    min-width: 100px;
-    padding:0 10px;
-    height: 30px;
-    line-height: 30px;
-    border: 0 solid #FFF;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    text-align:left;
-}
-.jqdrop.select li {
-    display: none;
-}
-.jqdrop.select li.current {
-    display:block;
-    background: #FFF url(http://givetu.me/img/dropdown.png) no-repeat 95%;
-}
-.jqdrop.select.active li {
-    display: block;
-}
-.jqdrop.select li.current {
-    cursor: pointer;
-    font-size:22px;
-    text-align:center;
-}
-.jqdrop.select li:hover {
-    cursor: pointer;
-    color:#ff976e;
-}
-.jqdrop.select li.current:hover {
-    color:#ff976e;
 }
 .value {
     display:none;

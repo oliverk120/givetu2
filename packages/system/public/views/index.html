@@ -15,10 +15,6 @@
           <div class="col-md-6 text-center">
             <form name="giftForm" class="form-horizontal" role="form" data-ng-submit="finder()" novalidate data-ng-controller="GiftsController">
               <div class="alert alert-warning" ng-show="noGift" role="alert">Sorry! No gifts are available for this criteria at the moment</div>
-              Submitted: {{list}}
-              <ul>
-                <li ng-repeat="gift in gifts">{{gift.name}} price: {{gift.price}}</li>
-              </ul>
               <h1 class="home"><span>I need a gift for my&nbsp;</span>
             
                 <select name="togender" class="input-medium" ng-model="togender">
@@ -44,10 +40,10 @@
             <hr/>
             <div class="row">
               <div class="col-md-6">
-              <button class="thumb-nav btn btn-lg btn-block love-it" type="submit"> Suggest Gift    </button>
+              <button class="thumb-nav btn btn-lg btn-block find-it" type="submit"> Suggest Gift    </button>
               </div>
               <div  class="col-md-6">
-              <button class="thumb-nav btn btn-lg btn-block next-it" type="submit"> Random </button>
+              <button class="thumb-nav btn btn-lg btn-block random-it" type="submit"> Random </button>
             </div>
             </div>
 

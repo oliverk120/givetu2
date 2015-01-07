@@ -1,4 +1,31 @@
 /* View */
+.description{
+    background-color: #333;
+    color: #FFF;
+}
+
+.product {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #ff976e;
+  margin-top: 0;
+}
+
+.description p {
+    color: #DDD;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 28px;
+  display: block;
+}
+
+.shipping_link {
+  color: #ff976e;
+}
+
 .love-it {
     color:#FFF;
     background-color:#dc1058;
