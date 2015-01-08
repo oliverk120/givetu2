@@ -44,6 +44,10 @@ var GiftSchema = new Schema({
     type: String,
     required: false,
   },
+  torelationship: {
+    type: String,
+    required: false,
+  },
   agemin: {
     type: Number,
     required: false,

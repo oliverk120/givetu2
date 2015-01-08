@@ -22,7 +22,11 @@ module.exports = function(Gifts, app, auth, database) {
     .get(auth.isMongoId, gifts.show)
     .put(auth.isMongoId, auth.requiresLogin, hasAuthorization, gifts.update)
     .delete(auth.isMongoId, auth.requiresLogin, hasAuthorization, gifts.destroy);
-    
+
+    //TESTING//
+  app.route('/upload/images')
+    .post(gifts.uploadImage);
+
   app.param('giftId', gifts.gift);
 
 };

@@ -14,3 +14,14 @@ angular.module('mean.gifts').factory('Gifts', ['$resource',
 		});
 	}
 	]);
+
+angular.module('mean.gifts').factory('Images', ['$resource',
+	function($resource) {
+		return $resource('upload/images', {}, {
+			upload: {
+				method:'POST'
+			}
+			
+		});
+	}
+	]);

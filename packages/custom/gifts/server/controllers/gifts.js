@@ -26,7 +26,7 @@ exports.all = function(req, res) {
 
   //if a 'to relationship' was specified, add it to the query
   if('togender' in req.query){
-    query.togender = req.query.togender;
+    query.togender = {$in: [req.query.togender, '']};
   }
 
   if('minprice' in req.query){
@@ -100,4 +100,19 @@ exports.destroy = function(req, res) {
     }
     //res.json(gift);
   });
+
 };
+
+  exports.uploadImage = function(req, res){
+    var cloudinary = require('cloudinary');
+    cloudinary.config({ 
+      cloud_name: 'givetu', 
+      api_key: '737727532997214', 
+      api_secret: 'ku8wxmSkffr-gGw6H4yd5ittSe0' 
+    });
+
+    cloudinary.uploader.upload(req.body.url, function(result) { 
+      res.json(result);
+      console.log(result); 
+    });
+  };

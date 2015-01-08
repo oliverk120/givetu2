@@ -1,8 +1,8 @@
 'use strict';
 
 /* jshint -W098 */
-angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$state', '$rootScope', 'Global', 'Gifts',
-  function($scope, $stateParams, $state, $rootScope, Global, Gifts) {
+angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$state', '$rootScope', 'Global', 'Gifts', 'Images',
+  function($scope, $stateParams, $state, $rootScope, Global, Gifts, Images) {
     $scope.global = Global;
     $scope.package = {
       name: 'gifts'
@@ -40,9 +40,14 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
       }
     }
 
-      //if 'to relationship' was specified
+      //if 'to gender' was specified
       if($scope.togender){
         query.togender = $scope.togender;
+      }
+
+      //if 'to relationship' was specified
+      if($scope.torelationship){
+        query.torelationship = $scope.torelationship;
       }
 
       //if 'level' was specified
@@ -80,6 +85,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
           amazonid: this.amazonid,
           affiliate: 'givetu-20',
           togender: this.togender,
+          torelationship: this.torelationship,
           level: this.level,
           agemin: this.agemin,
           agemax: this.agemax
@@ -166,6 +172,14 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
     }, function(gift) {
       $scope.gift = gift;
     });
+  };
+
+  $scope.upload = function(){
+    
+    Images.upload({url:this.url}, function(result){
+      console.log(result);
+    });
+    
   };
 
 }
