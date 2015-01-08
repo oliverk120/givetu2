@@ -1,12 +1,17 @@
 'use strict';
 
 /* jshint -W098 */
-angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$state', '$rootScope', 'Global', 'Gifts', 'Images',
-  function($scope, $stateParams, $state, $rootScope, Global, Gifts, Images) {
+angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$location', '$rootScope', 'Global', 'Gifts', 'Images',
+  function($scope, $stateParams, $location, $rootScope, Global, Gifts, Images) {
     $scope.global = Global;
     $scope.package = {
       name: 'gifts'
     };
+
+    function shuffle(o){ //v1.0
+      for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+      return o;
+    }
 
     $scope.submit = function(){
 
@@ -59,16 +64,16 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
         //load the gifts up into the $scope gifts variable
         $scope.gifts = gifts;
         //load a list of id's to feed into the findOne view
-        $rootScope.giftIdList = [];
+        var giftIdList = [];
         for(var item in gifts){
           if(gifts[item].hasOwnProperty('_id')){
-            $rootScope.giftIdList.push({id:gifts[item]._id, image:gifts[item].image});
+            giftIdList.push({id:gifts[item]._id, image:gifts[item].image});
           }
         }
-        $scope.list = $rootScope.giftIdList;
+        $rootScope.giftIdList = shuffle(giftIdList);
         if($rootScope.giftIdList.length>0){
           var first_id = $rootScope.giftIdList[0].id;
-          $state.go('gift by id', {giftId:first_id});
+          $location.path('gifts/' + first_id);
         } else {
           $scope.noGift = true;
         }
@@ -91,7 +96,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
           agemax: this.agemax
         });
         gift.$save(function(response) {
-          //console.log(gift);
+          $location.path('gifts/' + response._id);
         });
         this.title = '';
         this.content = '';
@@ -175,9 +180,9 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
   };
 
   $scope.upload = function(){
-    
     Images.upload({url:this.url}, function(result){
-      console.log(result);
+      $scope.image = result.url;
+      $scope.uploaded = true;
     });
     
   };
