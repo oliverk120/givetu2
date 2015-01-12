@@ -12,7 +12,6 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
     {
       var preloadedImage = new Image(); 
       preloadedImage.src = src;
-      console.log(preloadedImage);
     }
 
     function shuffle(o){ //v1.0
