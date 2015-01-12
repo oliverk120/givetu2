@@ -418,16 +418,13 @@ describe('<Unit Test>', function() {
 
     after(function(done) {
 
-      /** Clean up user objects
-       * un-necessary as they are cleaned up in each test but kept here
-       * for educational purposes
-       *
-       *  var _user1 = new User(user1);
-       *  var _user2 = new User(user2);
-       *
-       *  _user1.remove();
-       *  _user2.remove();
-       */
+
+         var _user1 = new User(user1);
+         var _user2 = new User(user2);
+       
+         _user1.remove();
+         _user2.remove();
+
 
       done();
     });
