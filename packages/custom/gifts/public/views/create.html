@@ -66,12 +66,16 @@
     </div>
   </form>
 
-<form data-ng-submit="upload()" class="form-horizontal col-md-6" role="form">
+<div class="col-md-6" >
+<form data-ng-submit="upload()" class="form-horizontal" role="form">
   <h2>Upload an Image</h2>
   <input type="text" name="url" data-ng-model="url" />
   <button type="submit">Submit</button>
 </form>
-<img ng-show="uploaded" src="{{image}}"/>
 
-
+<div class="thumbnail" ng-show="uploaded" >
+ <button type="button" class="close" ng-click="image=''; uploaded=false" ><span>&times;</span></button>
+<img src="{{image}}"/>
+<div>
+</div>
 </section>

@@ -8,9 +8,16 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
       name: 'gifts'
     };
 
+    function preload(src) 
+    {
+      var preloadedImage = new Image(); 
+      preloadedImage.src = src;
+      console.log(preloadedImage);
+    }
+
     function shuffle(o){ //v1.0
       for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-      return o;
+        return o;
     }
 
     $scope.submit = function(){
@@ -144,6 +151,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
       //if a search has been done for gifts and a list has been loaded, then this is true
       var gifts_loaded = $rootScope.hasOwnProperty('giftIdList');
       $scope.next_id = 0;
+      $scope.next_image = false;
       if($stateParams.giftId.match(/^[0-9a-fA-F]{24}$/)){
         //if a gift id is specified, load that gift
         current_id = $stateParams.giftId;
@@ -152,12 +160,9 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
           for (var k = 0; k < $rootScope.giftIdList.length; k+=1) {
             if ($rootScope.giftIdList[k].id === current_id) {
               var j = k+1;
-              console.log('j:' +j);
-              console.log($rootScope.giftIdList);
-              console.log($rootScope.giftIdList[j]);
               if($rootScope.giftIdList[j]){
                 $scope.next_id = $rootScope.giftIdList[j].id;
-                console.log($scope.next_id);
+                $scope.next_image = $rootScope.giftIdList[j].image;
               }
             }
           }
@@ -166,6 +171,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
         current_id = $rootScope.giftIdList[0].id;
         if($rootScope.giftIdList[1]){
           $scope.next_id = $rootScope.giftIdList[1].id;
+          $scope.next_image = $rootScope.giftIdList[1].image;
         }
       }
       //need to determine what the next gift will be
@@ -177,14 +183,19 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
     }, function(gift) {
       $scope.gift = gift;
     });
+
+    //preload next image
+    preload($scope.next_image);
+
+
   };
 
   $scope.upload = function(){
     Images.upload({url:this.url}, function(result){
-      $scope.image = result.url;
+      console.log(result);
+      $scope.image = result.eager[0].url;
       $scope.uploaded = true;
-    });
-    
+    });    
   };
 
 }

@@ -114,5 +114,8 @@ exports.destroy = function(req, res) {
     cloudinary.uploader.upload(req.body.url, function(result) { 
       res.json(result);
       console.log(result); 
+    }, { 
+      transformation: { width: 600, height: 1000, crop: 'limit' }, 
+      eager: { width: 450, crop: 'scale' }
     });
   };

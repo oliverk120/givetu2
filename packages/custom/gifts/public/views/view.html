@@ -19,7 +19,7 @@
       </div>
 				<div class="col-md-8">
 					
-					<div class="well hidden">
+					<div class="well" ng-show="global.authenticated">
 						<a data-ng-href="#!/gifts/create">Add New Gift</a> - 
 						<a data-ng-href="#!/gifts/{{gift._id}}/edit">Edit</a> - 
 						<a data-ng-href="#!/gifts/delete">Delete</a> - 
@@ -73,4 +73,6 @@
 				</div><!-- col-md-10 offset-1 -->
 			</div><!-- row -->	
 		</div><!-- container -->	
+
+
 	</section>
