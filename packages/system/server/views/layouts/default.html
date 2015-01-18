@@ -3,6 +3,7 @@
 {% include '../includes/head.html' %}
 
 <body data-ng-controller="ThemeController" ng-cloak class="ng-cloak" ng-class="state">
+    <div class="background-top">
     <div class="navbar" data-ng-include="'/system/views/header.html'" data-role="navigation"></div>
     {% if adminEnabled %}
     <section class="admin-menu">
@@ -15,6 +16,7 @@
         </section>
     </section>
     {% include '../includes/foot.html' %}
+    </div>
 </body>
 
 </html>

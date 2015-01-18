@@ -8,7 +8,7 @@
   font-size: 14px;
   line-height: 20px;
   font-weight: bold;
-  color: #ff976e;
+  color: #e92377;
   margin-top: 0;
 }
 
@@ -23,25 +23,9 @@ h3 {
 }
 
 .shipping_link {
-  color: #ff976e;
+  color: #e92377;
 }
 
-.love-it {
-    color:#FFF;
-    background-color:#dc1058;
-}
-.next-it {
-    color:#FFF;
-    background-color:#31a9b7;
-}
-.home-it, .find-it {
-    color:#FFF;
-    background-color:#ee3925;
-}
-.random-it {
-    color:#FFF;
-    background-color:orange;
-}
 .thumb-nav a {
     color:#FFF;
     font-size:24px;
@@ -100,7 +84,7 @@ find-it {
 /* Price Tag */
 
 .price {
-    background-image:url('http://givetu.me/img/pricetag.png');
+    background-image:url('/packages/system/public/assets/img/pricetag.png');
     background-repeat:none;
     width:73px;
     height:27px;

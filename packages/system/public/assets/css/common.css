@@ -11,19 +11,58 @@ h1{
     line-height: 2em;
 }
 
+.suggestGift {
+    color:#FFF;
+    font-family: 'Courgette-Regular', Arial, sans-serif;
+    background-color:#dc1058;
+}
+.surpriseMe {
+    color:#FFF;
+    font-family: 'Courgette-Regular', Arial, sans-serif;
+    background-color:#ac0f52;
+}
+
+.imInterested {
+    color:#FFF;
+    font-family: 'Courgette-Regular', Arial, sans-serif;
+    background-color:#d02087;
+}
+
+.whatElse {
+    color:#FFF;
+    font-family: 'Courgette-Regular', Arial, sans-serif;
+    background-color:#f86aa6;
+}
+
+.goHome {
+    color:#FFF;
+    font-family: 'Courgette-Regular', Arial, sans-serif;
+    background-color:#e92377;
+}
+
 .bg {
     background-color:#333;
 }
+
 body{
-  font-family: SamoSans, Arial, sans-serif;
-  background-image: url('/packages/system/public/assets/img/background-top.png');
-  background-repeat: repeat-x;
-  background-position: 0 0;
+  font-family: 'SamoSans', Arial, sans-serif;
+  background-image: url('/packages/system/public/assets/img/background_VALENTINES_SM.png');
+}
+
+.background-top {
+    background-image: url('/packages/system/public/assets/img/background-top.png');
+    background-repeat: repeat-x;
+    background-position: 0 0;
 }
 
 h3 small {
   font-size: 14px;
   line-height: 20px;
+}
+
+@font-face {
+    font-family: 'Courgette-Regular';
+    src: url('/packages/system/public/assets/fonts/Courgette-Regular.ttf');
 }
 
  @font-face {
