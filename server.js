@@ -1,12 +1,7 @@
 'use strict';
 
-//Performance monitoring - currently only configured on Heroku
-if(process.env.NODETIME_ACCOUNT_KEY) {
-  require('nodetime').profile({
-    accountKey: process.env.NODETIME_ACCOUNT_KEY,
-    appName: 'Givetu - Romantic' // optional
-  });
-}
+//Performance monitoring
+require('newrelic');
 
 // Requires meanio .
 var mean = require('meanio');
