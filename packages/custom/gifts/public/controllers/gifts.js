@@ -8,25 +8,8 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
       name: 'gifts'
     };
 
-    function preload(src) 
-    {
-      var preloadedImage = new Image(); 
-      preloadedImage.src = src;
-    }
-
-    function shuffle(o){ //v1.0
-      for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-        return o;
-    }
-
-    $scope.submit = function(){
-
-    	$scope.submitted = [$scope.togender];
-    };
-
     $scope.find = function(){
       Gifts.query(function(gifts) {
-
         $scope.gifts = gifts;
       });
     };
@@ -45,22 +28,19 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
           query.minprice = price[0];
         }
         if(price[1]<10000000){
-          //if there is a max price, add it to the query
-          query.maxprice = price[1];
+            //if there is a max price, add it to the query
+            query.maxprice = price[1];
+          }
         }
       }
-    }
-
       //if 'to gender' was specified
       if($scope.togender){
         query.togender = $scope.togender;
       }
-
       //if 'to relationship' was specified
       if($scope.torelationship){
         query.torelationship = $scope.torelationship;
       }
-
       //if 'level' was specified
       if($scope.level){
         query.level = $scope.level;
@@ -120,27 +100,25 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
         gift.updated.push(new Date().getTime());
 
         gift.$update(function() {
-          //$location.path('gifts/' + gift._id);
+          $location.path('gifts/' + gift._id);
         });
       } else {
         $scope.submitted = true;
       }
     };
 
-    $scope.remove = function(gift) {
-
+    $scope.remove = function(gift) {      
       if (gift) {
-
         gift.$remove();
-
         for (var i in $scope.gifts) {
           if ($scope.gifts[i] === gift) {
             $scope.gifts.splice(i, 1);
           }
         }
       } else {
+        console.log($scope.gift);
         $scope.gift.$remove(function(response) {
-          //$location.path('gifts');
+          $location.path('gifts');
         });
       }
     };
@@ -162,6 +140,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
               if($rootScope.giftIdList[j]){
                 $scope.next_id = $rootScope.giftIdList[j].id;
                 $scope.next_image = $rootScope.giftIdList[j].image;
+                preload($scope.next_image);
               }
             }
           }
@@ -183,10 +162,6 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
       $scope.gift = gift;
     });
 
-    //preload next image
-    preload($scope.next_image);
-
-
   };
 
   $scope.upload = function(){
@@ -197,5 +172,17 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
     });    
   };
 
-}
-]);
+  //Non-scope functions
+  function preload(src) 
+  {
+    var preloadedImage = new Image(); 
+    preloadedImage.src = src;
+  }
+
+    function shuffle(o){ //v1.0
+      for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    }
+
+  }
+  ]);

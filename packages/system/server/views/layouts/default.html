@@ -4,7 +4,7 @@
 
 <body data-ng-controller="ThemeController" ng-cloak class="ng-cloak" ng-class="state">
     <div class="background-top">
-    <div class="navbar" data-ng-include="'/system/views/header.html'" data-role="navigation"></div>
+    <div class="navbar" data-ng-include="'/system/views/header.html'" data-role="navigation" data-ng-show="global.authenticated" ></div>
     {% if adminEnabled %}
     <section class="admin-menu">
         <div data-ng-include="'/mean-admin/views/index.html'"></div>

@@ -20,11 +20,11 @@
 				<div class="col-md-8">
 					
 					<div class="well" ng-show="global.authenticated">
-						<a data-ng-href="#!/gifts/create">Add New Gift</a> - 
-						<a data-ng-href="#!/gifts/{{gift._id}}/edit">Edit</a> - 
-						<a data-ng-href="#!/gifts/delete">Delete</a> - 
-						<a data-ng-href="#!/users/logout">Logout</a>      
-						<b> Criteria: </b> Min age:{{gift.agemin}}; Max age:{{gift.agemax}}; Recipient:{{gift.togender}}; 
+						<a class="btn" data-ng-href="#!/gifts/create">Add New Gift</a> - 
+						<a class="btn" data-ng-href="#!/gifts/{{gift._id}}/edit">Edit</a> - 
+						<a class="btn" data-ng-click="remove()">Delete</a> - 
+						<a class="btn" data-ng-href="#!/users/logout">Logout</a>      
+						<b> Criteria: </b> Level:{{gift.level}}; Recipient:{{gift.togender}}; 
 					</div>
 					
 					<div class='row text-right'>
