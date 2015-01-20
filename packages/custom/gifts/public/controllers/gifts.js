@@ -179,6 +179,10 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
           gift.link = amazon_base_link + gift.amazonid + '/tag=' + gift.affiliate;
         } 
       }
+      if('source' in gift){
+        var url_split = gift.source.split('/');
+        gift.source_title = url_split[2];
+      }
       $scope.gift = gift;
     });
 

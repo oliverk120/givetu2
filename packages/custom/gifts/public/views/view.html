@@ -24,9 +24,8 @@
 					<div class="well" ng-show="global.authenticated">
 						<a class="btn" data-ng-href="#!/gifts/create">Add New Gift</a> - 
 						<a class="btn" data-ng-href="#!/gifts/{{gift._id}}/edit">Edit</a> - 
-						<a class="btn" data-ng-click="remove()">Delete</a> - 
-						<a class="btn" data-ng-href="#!/users/logout">Logout</a>      
-						<b> Criteria: </b> Level:{{gift.level}}; Recipient:{{gift.togender}}; 
+						<a class="btn" data-ng-click="remove()">Delete</a>   
+						<b> Criteria: </b> Source:{{gift.source}}; Link:{{gift.link}}; 
 					</div>
 					
 					<div class='row text-right'>
@@ -50,7 +49,7 @@
 					<div class="row">
 					
             <div class="col-md-7">
-							<a class="thumbnail" data-ng-href="{{gift.link}}" rel="nofollow">
+							<a class="thumbnail" data-ng-href="{{gift.link}}" target="_blank" rel="nofollow">
 								<img class ="image-responsive" src="{{gift.image}}" alt="{{gift.name}}" />
 							</a>      
 						</div>
@@ -60,11 +59,17 @@
               <div class="description well">
 								<h1 class="product"> Why don't you get  this gift? </h1>
 								<h3>{{gift.name}}</h3>
-
+								
 									<p>{{gift.description}}</p> 
-									<a href="/pages/shipping" class="shipping_link" target="_blank">Not in the U.S.? Read This!</a>        <div class="price">
+									<a href="http://www.givetu.me/pages/shipping" class="shipping_link" target="_blank">Not in the U.S.? Read This!</a>        
+									<div class="price">
 									<p>{{gift.price}}</p>
-								</div>
+									</div>
+									<div class="source" ng-show="gift.source">
+										<hr/>
+										This great gift idea came from: <a ng-href="{{gift.source}}" target="_blank">{{gift.source_title}}</a>
+									</div>
+								
 							</div>
               
               <div class=""> 
