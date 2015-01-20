@@ -34,6 +34,9 @@
 						<div class="col-md-3">
 						  <a class=" thumb-nav btn btn-lg btn-block goHome" data-ng-href="#!/">home</a> 
             </div> -->
+            <div class="col-md-3" ng-hide="next_id">
+						  <a class=" thumb-nav btn btn-lg btn-block surpriseMe" href ng-click="finder()">Random</a> 
+            </div>
             <div class="col-md-3 col-md-offset-6">
               <a class="thumb-nav btn btn-lg btn-block imInterested" data-ng-href="{{gift.affiliate}}" target="_blank" rel="nofollow">i'm interested</a> 
 						</div>
@@ -41,9 +44,7 @@
 						  <a class=" thumb-nav btn btn-lg btn-block whatElse" data-ng-href="#!/gifts/{{next_id}}">what else</a> 
             </div>
 
-            <div class="col-md-3" ng-hide="next_id">
-						  <a class=" thumb-nav btn btn-lg btn-block surpriseMe" href ng-click="finder()">Random</a> 
-            </div>
+            
 					</div>			
 					
 					<div class="row">

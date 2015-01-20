@@ -200,6 +200,11 @@ footer p {
 .featuredpic img{
   width:510px;
 }
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent;
+}
+
 /*.ng-invalid.ng-dirty{*/
     /*border-color:#FA787E;*/
 /*}*/

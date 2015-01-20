@@ -32,6 +32,14 @@ var GiftSchema = new Schema({
     type: String,
     required: false,
   },
+  link: {
+    type: String,
+    required: false,
+  },
+  source: {
+    type: String,
+    required: false,
+  },
   affiliate: {
     type: String,
     required: false,

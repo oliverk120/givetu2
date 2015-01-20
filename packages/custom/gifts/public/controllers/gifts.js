@@ -3,6 +3,9 @@
 /* jshint -W098 */
 angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$location', '$rootScope', 'Global', 'Gifts', 'Images',
   function($scope, $stateParams, $location, $rootScope, Global, Gifts, Images) {
+
+    var amazon_base_link = 'http://www.amazon.com/dp/';
+
     $scope.global = Global;
     $scope.package = {
       name: 'gifts'
@@ -10,6 +13,16 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
 
     $scope.find = function(){
       Gifts.query(function(gifts) {
+        $scope.gifts = gifts;
+      });
+    };
+
+    $scope.categorize = function(price, relationship){
+      Gifts.query(function(gifts) {
+        for(var i = 0; i<gifts.length; i+=1){
+          console.log(gifts[i]);
+          //if(gifts[i].){}
+        }
         $scope.gifts = gifts;
       });
     };
@@ -74,6 +87,8 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
           description: this.description,
           price: this.price,
           amazonid: this.amazonid,
+          link: this.link,
+          source: this.source,
           affiliate: 'givetu-20',
           togender: this.togender,
           torelationship: this.torelationship,
@@ -159,6 +174,11 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
     Gifts.get({
       giftId: current_id
     }, function(gift) {
+      if('amazonid' in gift){
+        if('affiliate' in gift){
+          gift.link = amazon_base_link + gift.amazonid + '/tag=' + gift.affiliate;
+        } 
+      }
       $scope.gift = gift;
     });
 

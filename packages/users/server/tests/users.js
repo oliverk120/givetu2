@@ -399,7 +399,10 @@ describe('<Unit Test>', function() {
 
         return _user.save(function(err) {
           expect(_user.name).to.be('&lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;');
-          done();
+          _user.remove(function() {
+              expect(err).to.be(null);
+              done();
+            });
         });
       });
 
@@ -410,7 +413,10 @@ describe('<Unit Test>', function() {
 
         return _user.save(function(err) {
           expect(_user.name).to.be('&lt;b&gt;xss&lt;/b&gt;');
-          done();
+          _user.remove(function() {
+              expect(err).to.be(null);
+              done();
+            });
         });
       });
 

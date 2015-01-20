@@ -32,6 +32,8 @@ describe('<Unit Test>', function() {
           description: 'Description',
           price: 5,
           amazonid: 'amazonid',
+          link: 'http://www.google.com',
+          source: 'http://www.givetu.me',
           affiliate: 'givetu-20',
           togender: 'M',
           torelationship: 1,
@@ -54,6 +56,8 @@ describe('<Unit Test>', function() {
           expect(gift.description).to.equal('Description');
           expect(gift.price).to.equal(5);
           expect(gift.amazonid).to.equal('amazonid');
+          expect(gift.link).to.equal('http://www.google.com');
+          expect(gift.source).to.equal('http://www.givetu.me');
           expect(gift.affiliate).to.equal('givetu-20');
           expect(gift.togender).to.equal('M');
           expect(gift.torelationship).to.equal('1');
