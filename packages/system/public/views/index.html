@@ -17,23 +17,24 @@
               <h1 class="home"><span>I need a gift for my&nbsp;</span>
             
                 <select name="togender" class="input-medium" ng-model="togender">
-                <option value=""></option>
+                <option value="" selected></option>
                 <option ng-repeat="relationship in options.relationship" value="{{relationship.gender}}">{{relationship.name}}</option>
               </select> 
-            
-              <span>for&nbsp;$</span>
+            <br/>
+              <span> I want to spend &nbsp;$</span>
 
               <select name="price" class="input-small" ng-model="price">
-              <option value=""></option>
+              <option value="" selected></option>
               <option value="{{price.value}}" ng-repeat="price in options.price">{{price.name}}</option>
             </select> 
             <br/>
+            <!--
             <span> It should be</span>
               <select name="level" class="input-medium" ng-model="level" >
               <option value=""></option>
               <option value="{{level.value}}" ng-repeat="level in options.level">{{level.name}}</option>
             </select> 
-
+            -->
             
           </h1>
             <hr/>

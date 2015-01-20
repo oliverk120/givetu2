@@ -1,7 +1,7 @@
 'use strict';
 
 //Performance monitoring
-require('newrelic');
+//require('newrelic');
 
 // Requires meanio .
 var mean = require('meanio');

@@ -1,25 +1,27 @@
-<section data-ng-controller="GiftsController" data-ng-init="finder()">
-<table class="table table-hover">
-  <tr>
-    <th>Name</th>
-    <th>Image</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>To Gender</th>
-    <th>Age Minimum</th>
-    <th>Age Maxiumum</th>
-    <th>User</th>
-  </tr>
-  <tr ng-repeat="gift in gifts">
-    <td><a href="#!/gifts/{{gift._id}}">{{gift.name}}</a></td>
-    <td>{{gift.image}}</td>
-    <td>{{gift.description}}</td>
-    <td>{{gift.price}}</td>
-    <td>{{gift.togender}}</td>
-    <td>{{gift.agemin}}</td>
-    <td>{{gift.agemax}}</td>
-    <td>{{gift.user}}</td>
-    <td><a data-ng-click="remove(gift);"><i class="glyphicon glyphicon-trash"></i></a></td>
-  </tr>
+
+<section data-ng-controller="IndexController" >
+
+{{gifts}}
+<input type="text" ng-model="test.name">
+<ul>
+                <li ng-repeat="gift in gifts">{{gift.name}} - {{gift.price}}</li>
+            </ul>
+
+<table data-ng-controller="GiftsController" data-ng-init="categorize(options.price, options.relationship)">
+    <tr>
+        <th>Price Class</th>
+        <th>Male</th>
+        <th>Female</th>
+    </tr>
+    <tr ng-repeat="item in options.price">
+        <td>
+            <ul>
+                <li ng-repeat="gift in gifts | filter:test">{{gift.name}} - {{gift.price}}</li>
+            </ul>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
 </table>
+
 </section>
