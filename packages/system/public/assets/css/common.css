@@ -53,6 +53,13 @@ body{
     background-image: url('/packages/system/public/assets/img/background-top.png');
     background-repeat: repeat-x;
     background-position: 0 0;
+    min-height: 50px;
+}
+
+.navbar-brand, .navbar-nav li a {
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
 }
 
 h3 small {
@@ -172,7 +179,7 @@ h3 small {
     margin-left: 0
 }
 .content {
-    margin-top: 70px;
+    margin-top: 20px;
     width: 100%
 }
 footer {
