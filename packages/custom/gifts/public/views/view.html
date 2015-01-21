@@ -1,89 +1,88 @@
 <section data-ng-controller="GiftsController" data-ng-init="findOne()">
 
-		<div class="container-fluid">
-			
-			<!-- when looking at the page full screen, there will be a space between the logo and the content, this dissapears as the screen size shrinks-->
-			<div class="row">
-        <div class="col-md-12 text-center spacer">
-        </div>
-        <div class="col-md-12 text-center spacer visible-desktop">
-        </div>
+	<div class="container-fluid">
+
+		<!-- when looking at the page full screen, there will be a space between the logo and the content, this dissapears as the screen size shrinks-->
+		<div class="row">
+			<div class="col-md-12 text-center spacer">
 			</div>
-			<div class="col-md-3 offset-md-1">
-				<div class="row text-center">
+			<div class="col-md-12 text-center spacer visible-desktop">
+			</div>
+		</div>
+		<div class="col-md-2 offset-md-1">
+			<div class="row text-center">
 				<!--
 				<a href="#!/">
 					<img src="/packages/system/public/assets/img/givetu_LOGO_VALENTINES.png" class="image-responsive" alt="Find creative and unique gift ideas!" />
 				</a>
-				-->
+			-->
 
 			</div>
-      </div>
-				<div class="col-md-8">
-					
-					<div class="well" ng-show="global.authenticated">
-						<a class="btn" data-ng-href="#!/gifts/create">Add New Gift</a> - 
-						<a class="btn" data-ng-href="#!/gifts/{{gift._id}}/edit">Edit</a> - 
-						<a class="btn" data-ng-click="remove()">Delete</a>   
-						<b> Criteria: </b> Source:{{gift.source}}; Link:{{gift.link}}; 
+		</div>
+		<div class="col-md-9">
+
+			<div class="well" ng-show="global.authenticated">
+				<a class="btn" data-ng-href="#!/gifts/create">Add New Gift</a> - 
+				<a class="btn" data-ng-href="#!/gifts/{{gift._id}}/edit">Edit</a> - 
+				<a class="btn" data-ng-click="remove()">Delete</a>   
+				<b> Criteria: </b> Source:{{gift.source}}; Link:{{gift.link}}; 
+			</div>
+
+			<div class='row text-right'>
+				<!--
+				<div class="col-md-3">
+				  <a class=" thumb-nav btn btn-lg btn-block goHome" data-ng-href="#!/">home</a> 
+				</div> -->
+				<div class="col-md-3" ng-hide="next_id">
+					<a class=" thumb-nav btn btn-lg btn-block surpriseMe" href ng-click="finder()">Random</a> 
+				</div>
+				<div class="col-md-3 col-md-offset-6">
+					<a class="thumb-nav btn btn-lg btn-block imInterested" data-ng-href="{{gift.link}}" target="_blank" rel="nofollow">i'm interested</a> 
+				</div>
+				<div class="col-md-3" ng-show="next_id">
+					<a class=" thumb-nav btn btn-lg btn-block whatElse" data-ng-href="#!/gifts/{{next_id}}">what else</a> 
+				</div>
+
+
+			</div>			
+			
+			<div class="row">
+
+				<div class="col-md-7">
+					<a class="thumbnail" data-ng-href="{{gift.link}}" target="_blank" rel="nofollow">
+						<img class ="image-responsive" src="{{gift.image}}" alt="{{gift.name}}" />
+					</a>      
+				</div>
+				
+				<div class="col-md-5 text-left">
+
+					<div class="description well">
+						<h1 class="product"> Why don't you get  this gift? </h1>
+						<h3>{{gift.name}}</h3>
+						<p>{{gift.description}}</p> 
+						<a href="http://www.givetu.me/pages/shipping" class="shipping_link" target="_blank">Not in the U.S.? Read This!</a>        
+						<div class="price">
+							<p>{{gift.price}}</p>
+						</div>
+						<div class="source" ng-show="gift.source">
+							<hr/>
+							This great gift idea came from: <a ng-href="{{gift.source}}" target="_blank">{{gift.source_title}}</a>
+						</div>
+						
 					</div>
-					
-					<div class='row text-right'>
-						<!--
-						<div class="col-md-3">
-						  <a class=" thumb-nav btn btn-lg btn-block goHome" data-ng-href="#!/">home</a> 
-            </div> -->
-            <div class="col-md-3" ng-hide="next_id">
-						  <a class=" thumb-nav btn btn-lg btn-block surpriseMe" href ng-click="finder()">Random</a> 
-            </div>
-            <div class="col-md-3 col-md-offset-6">
-              <a class="thumb-nav btn btn-lg btn-block imInterested" data-ng-href="{{gift.link}}" target="_blank" rel="nofollow">i'm interested</a> 
-						</div>
-            <div class="col-md-3" ng-show="next_id">
-						  <a class=" thumb-nav btn btn-lg btn-block whatElse" data-ng-href="#!/gifts/{{next_id}}">what else</a> 
-            </div>
 
-            
-					</div>			
-					
-					<div class="row">
-					
-            <div class="col-md-7">
-							<a class="thumbnail" data-ng-href="{{gift.link}}" target="_blank" rel="nofollow">
-								<img class ="image-responsive" src="{{gift.image}}" alt="{{gift.name}}" />
-							</a>      
-						</div>
-						
-						<div class="col-md-5 text-left">
-						
-              <div class="description well">
-								<h1 class="product"> Why don't you get  this gift? </h1>
-								<h3>{{gift.name}}</h3>
-									<p>{{gift.description}}</p> 
-									<a href="http://www.givetu.me/pages/shipping" class="shipping_link" target="_blank">Not in the U.S.? Read This!</a>        
-									<div class="price">
-									<p>{{gift.price}}</p>
-									</div>
-									<div class="source" ng-show="gift.source">
-										<hr/>
-										This great gift idea came from: <a ng-href="{{gift.source}}" target="_blank">{{gift.source_title}}</a>
-									</div>
-								
-							</div>
-              
-              <div class=""> 
-								<!-- Facebook Like Button-->
-								<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
-								<hr/>
-								<!-- Pin it button  -->
-								<div><a href="" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" alt="Pin It"/></a></div>
-							</div>
-						
-            </div>
-					</div><!-- row -->				
-				</div><!-- col-md-10 offset-1 -->
-			</div><!-- row -->	
-		</div><!-- container -->	
+					<div class=""> 
+						<!-- Facebook Like Button-->
+						<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+						<hr/>
+						<!-- Pin it button  -->
+						<div><a href="" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" alt="Pin It"/></a></div>
+					</div>
+				</div>
+			</div><!-- row -->				
+		</div><!-- col-md-10 offset-1 -->
+	</div><!-- row -->	
+</div><!-- container -->	
 
 
-	</section>
+</section>

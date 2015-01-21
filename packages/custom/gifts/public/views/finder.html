@@ -1,11 +1,7 @@
 
 <section data-ng-controller="IndexController" >
 
-{{gifts}}
 <input type="text" ng-model="test.name">
-<ul>
-                <li ng-repeat="gift in gifts">{{gift.name}} - {{gift.price}}</li>
-            </ul>
 
 <table data-ng-controller="GiftsController" data-ng-init="categorize(options.price, options.relationship)">
     <tr>
@@ -13,7 +9,7 @@
         <th>Male</th>
         <th>Female</th>
     </tr>
-    <tr ng-repeat="item in options.price">
+    <tr>
         <td>
             <ul>
                 <li ng-repeat="gift in gifts | filter:test">{{gift.name}} - {{gift.price}}</li>

@@ -1,5 +1,4 @@
 <section data-ng-controller="GiftsController" data-ng-init="findOne()">
-{{gift}}
   <form name="giftForm" class="form-horizontal col-md-6" role="form" data-ng-submit="update(giftForm.$valid)" novalidate>
     <div class="form-group" ng-class="{ 'has-error' : submitted && giftForm.title.$invalid }">
       <label mean-token="'create-title'" class="col-md-3 control-label">Title</label>
