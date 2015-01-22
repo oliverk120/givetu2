@@ -26,7 +26,8 @@ exports.all = function(req, res) {
 
   //if a 'to relationship' was specified, add it to the query
   if('togender' in req.query){
-    query.togender = {$in: [req.query.togender, '']};
+    query.$or = [{togender:req.query.togender}, {togender:{$exists:false}}];
+    //query.togender = {$in: [req.query.togender, '']};
   }
 
   if('minprice' in req.query){
@@ -38,11 +39,9 @@ exports.all = function(req, res) {
   //if a maxprice is set, replace placeholder
     maxprice = req.query.maxprice;
   }
-  console.log(query);
+  
   query.price = {$gt: minprice, $lt: maxprice};
-
-  /*TESTING the query*/
-  //query = {price: {$lt: 20}};
+  console.log(query);
 
   Gift.find(query).sort('-created').populate('user', 'name username').exec(function(err, gifts) {
     if (err) {
@@ -50,7 +49,7 @@ exports.all = function(req, res) {
         error: 'Cannot list the gifts'
       });
     }
-    console.log(gifts);
+
     res.json(gifts);
   });
 };

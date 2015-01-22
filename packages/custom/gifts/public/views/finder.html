@@ -3,17 +3,19 @@
 
 <input type="text" ng-model="test.name">
 
-<table data-ng-controller="GiftsController" data-ng-init="categorize(options.price, options.relationship)">
+<table data-ng-controller="GiftsController" data-ng-init="categorize(options.price)">
     <tr>
         <th>Price Class</th>
         <th>Male</th>
         <th>Female</th>
     </tr>
-    <tr>
+    <tr ng-repeat="price in options.price">
+        <td>{{price}}</td>
         <td>
             <ul>
-                <li ng-repeat="gift in gifts | filter:test">{{gift.name}} - {{gift.price}}</li>
+                <!--<li ng-repeat="gift in gifts['price30'] track by $id(gift)">{{gift.name}}</li>-->
             </ul>
+
         </td>
         <td></td>
         <td></td>

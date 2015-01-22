@@ -17,14 +17,35 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
       });
     };
 
-    $scope.categorize = function(price, relationship){
-      Gifts.query(function(gifts) {
-        for(var i = 0; i<gifts.length; i+=1){
-          console.log(gifts[i]);
-          //if(gifts[i].){}
+    $scope.categorize = function(priceRange){
+      var query = {};
+      var price = [];
+      var gift_obj = {};
+      var gender = ['M','F'];
+      var assign_gifts =  function(){
+        return function(gifts) {
+          console.log(gifts.length);
+        };
+      };
+
+      for(var i = 0; i<priceRange.length; i+=1){
+
+        for(var j = 0; j<gender.length; j+=1){
+              
+          console.log(priceRange[i].value);
+          price = priceRange[i].value.split('-'); 
+          if(price[0]>0){
+              //if there is a min price, add it to the query
+              query.minprice = price[0];
+            }
+          query.maxprice = price[1];
+          query.togender = gender[j];
+          console.log(price, gender[j] + ':');
+          Gifts.query(query, assign_gifts());
         }
-        $scope.gifts = gifts;
-      });
+      }
+      $scope.gifts = gift_obj;
+
     };
 
     //finder applies the filter and displays only gifts that match
