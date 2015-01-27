@@ -84,7 +84,7 @@ find-it {
 /* Price Tag */
 
 .price {
-    background-image:url('/packages/system/public/assets/img/pricetag.png');
+    background-image:url('/system/assets/img/pricetag.png');
     background-repeat:none;
     width:73px;
     height:27px;

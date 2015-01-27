@@ -46,11 +46,11 @@ h1{
 
 body{
   font-family: 'SamoSans', Arial, sans-serif;
-  background-image: url('/packages/system/public/assets/img/background_VALENTINES_SM.png');
+  background-image: url('/system/assets/img/background_VALENTINES_SM.png');
 }
 
 .background-top {
-    background-image: url('/packages/system/public/assets/img/background-top.png');
+    background-image: url('/system/assets/img/background-top.png');
     background-repeat: repeat-x;
     background-position: 0 0;
     min-height: 50px;
@@ -69,22 +69,22 @@ h3 small {
 
 @font-face {
     font-family: 'Courgette-Regular';
-    src: url('/packages/system/public/assets/fonts/Courgette-Regular.ttf');
+    src: url('/system/assets/fonts/Courgette-Regular.ttf');
 }
 
  @font-face {
  font-family: 'SamoSans';
  font-weight: normal;
  font-style: normal;
- src: url('/packages/system/public/assets/fonts/24C09F_0_0.eot');
- src: url('/packages/system/public/assets/fonts/24C09F_0_0.eot?#iefix') format('embedded-opentype'), url('/packages/system/public/assets/fonts/24C09F_0_0.woff') format('woff'), url('/packages/system/public/assets/fonts/24C09F_0_0.ttf') format('truetype');
+ src: url('/system/assets/fonts/24C09F_0_0.eot');
+ src: url('/system/assets/fonts/24C09F_0_0.eot?#iefix') format('embedded-opentype'), url('/system/assets/fonts/24C09F_0_0.woff') format('woff'), url('/system/assets/fonts/24C09F_0_0.ttf') format('truetype');
 }
  @font-face {
  font-family: 'SamoSans';
  font-weight: bold;
  font-style: normal;
- src: url('/packages/system/public/assets/fonts/24C0D7_0_0.eot');
- src: url('/packages/system/public/assets/fonts/24C0D7_0_0.eot?#iefix') format('embedded-opentype'), url('/packages/system/public/assets/fonts/24C0D7_0_0.woff') format('woff'), url('/packages/system/public/assets/fonts/24C0D7_0_0.ttf') format('truetype');
+ src: url('/system/assets/fonts/24C0D7_0_0.eot');
+ src: url('/system/assets/fonts/24C0D7_0_0.eot?#iefix') format('embedded-opentype'), url('/system/assets/fonts/24C0D7_0_0.woff') format('woff'), url('/system/assets/fonts/24C0D7_0_0.ttf') format('truetype');
 }
 
 /* Pages */
