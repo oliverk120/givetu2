@@ -1,8 +1,5 @@
 'use strict';
 
-// check memory leaks
-require('look').start();
-
 // Requires meanio .
 var mean = require('meanio');
 var cluster = require('cluster');
