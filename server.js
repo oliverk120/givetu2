@@ -1,5 +1,13 @@
 'use strict';
 
+if(process.env.NODETIME_ACCOUNT_KEY) {
+  require('nodetime').profile({
+    accountKey: process.env.NODETIME_ACCOUNT_KEY,
+    appName: 'Givetu - Romantic' // optional
+  });
+}
+
+
 // Requires meanio .
 var mean = require('meanio');
 var cluster = require('cluster');
