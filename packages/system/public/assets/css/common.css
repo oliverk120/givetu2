@@ -284,3 +284,14 @@ footer p {
 .icon_hide_password:hover .hide_text_password {
     display: block;
 }
+
+.inline{
+    display: inline;
+}
+
+.drpdwn .btn{
+    background-color: transparent;
+    border: 1px solid #dc1058;
+    color: #dc1058;
+    font-size: 25px;
+}
