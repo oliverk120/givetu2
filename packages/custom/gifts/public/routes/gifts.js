@@ -25,7 +25,8 @@ angular.module('mean.gifts').config(['$stateProvider',
    $stateProvider
     .state('list gifts', {
       url: '/gifts',
-      templateUrl: 'gifts/views/index.html'
+      templateUrl: 'gifts/views/index.html',
+      title: 'All Gifts - Givetu Romantic'
     })
     .state('finder gifts', {
       url: '/gifts/finder',
@@ -33,14 +34,16 @@ angular.module('mean.gifts').config(['$stateProvider',
     })
     .state('create gifts', {
     	url: '/gifts/create',
-    	templateUrl: 'gifts/views/create.html'
+    	templateUrl: 'gifts/views/create.html',
+      title: 'Create Gift - Givetu Romantic'
     })
     .state('edit gift', {
       url: '/gifts/:giftId/edit',
       templateUrl: 'gifts/views/edit.html',
       resolve: {
         loggedin: checkLoggedin
-      }
+      },
+      title: 'Edit Gift - Givetu Romantic'
     })
     .state('gift by id', {
       url: '/gifts/:giftId',

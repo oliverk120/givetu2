@@ -23,7 +23,6 @@ module.exports = function(Gifts, app, auth, database) {
     .put(auth.isMongoId, auth.requiresLogin, hasAuthorization, gifts.update)
     .delete(auth.isMongoId, auth.requiresLogin, hasAuthorization, gifts.destroy);
 
-    //TESTING//
   app.route('/upload/images')
     .post(gifts.uploadImage);
 

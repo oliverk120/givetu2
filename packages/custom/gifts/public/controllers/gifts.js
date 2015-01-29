@@ -1,11 +1,16 @@
 'use strict';
 
 /* jshint -W098 */
-angular.module('mean.gifts').controller('GiftsController', ['$scope', '$stateParams', '$location', '$rootScope', 'Global', 'Gifts', 'Images',
-  function($scope, $stateParams, $location, $rootScope, Global, Gifts, Images) {
+angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', '$stateParams', '$location', '$rootScope', 'Global', 'Gifts', 'Images',
+  function($scope, $state, $stateParams, $location, $rootScope, Global, Gifts, Images) {
 
     var amazon_base_link = 'http://www.amazon.com/dp/';
 
+    //if a title has been set by the state provider, then use that
+    if($state.current.hasOwnProperty('title')){
+      $rootScope.title = $state.current.title;  
+    }
+    
     $scope.global = Global;
     $scope.package = {
       name: 'gifts'
@@ -205,6 +210,8 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$statePar
         gift.source_title = url_split[2];
       }
       $scope.gift = gift;
+      //if a gift is retreived, set title to reflect
+      $rootScope.title = gift.name+' - Givetu';  
     });
 
   };

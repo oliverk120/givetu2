@@ -9,7 +9,6 @@ exports.gift = function(req, res, next, id) {
     if (err) return next(err);
     if (!gift) return next(new Error('Failed to load gift ' + id));
     req.gift = gift;
-    console.log(req.gift);
     next();
   });
 };
@@ -56,6 +55,7 @@ exports.all = function(req, res) {
 
 
 exports.show = function(req, res){
+  res.locals.title = 'TESTANG';
   res.json(req.gift);
 };
 
