@@ -55,7 +55,6 @@ exports.all = function(req, res) {
 
 
 exports.show = function(req, res){
-  res.locals.title = 'TESTANG';
   res.json(req.gift);
 };
 
