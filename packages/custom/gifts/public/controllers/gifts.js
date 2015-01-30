@@ -107,6 +107,11 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
 
     $scope.create = function(isValid) {
       if (isValid) {
+        //base setting for affiliate
+        var affiliate = 'givetu2-20';
+        if(this.affiliate){
+          affiliate = this.affiliate;
+        }
         var gift = new Gifts({ 
           name: this.name,
           image: this.image,
@@ -115,7 +120,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
           amazonid: this.amazonid,
           link: this.link,
           source: this.source,
-          affiliate: 'givetu2-20',
+          affiliate: affiliate,
           togender: this.togender,
           torelationship: this.torelationship,
           level: this.level,
