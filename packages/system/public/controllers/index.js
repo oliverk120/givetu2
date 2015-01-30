@@ -3,7 +3,8 @@
 angular.module('mean.system').controller('IndexController', ['$scope', '$rootScope', 'Global',
   function($scope, $rootScope, Global) {
     $rootScope.fb_title = 'Home - Givetu Romantic';  
- 
+    $rootScope.fb_description = 'Givetu Romantic gives you an easy way to pick out gifts for your boyfriend, girlfriend, husband or wife';  
+    $rootScope.fb_image = '/system/assets/img/givetu_LOGO_VALENTINES.png';  
     $scope.global = Global;
  
 $scope.options = {
