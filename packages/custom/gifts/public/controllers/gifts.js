@@ -8,9 +8,12 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
 
     //if a title has been set by the state provider, then use that
     if($state.current.hasOwnProperty('title')){
-      $rootScope.title = $state.current.title;  
+      $rootScope.fb_title = $state.current.title;  
     }
-    
+    //set image to be shown on facebook
+    $rootScope.fb_image = '/system/assets/img/givetu_LOGO_VALENTINES.png';
+    $rootScope.fb_description = 'Givetu Romantic gives you an easy way to pick out gifts for your boyfriend, girlfriend, husband or wife';
+
     $scope.global = Global;
     $scope.package = {
       name: 'gifts'
@@ -215,8 +218,11 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
         gift.source_title = url_split[2];
       }
       $scope.gift = gift;
-      //if a gift is retreived, set title to reflect
-      $rootScope.title = gift.name+' - Givetu';  
+      //if a gift is retreived, set title and image to reflect the gift
+      $rootScope.fb_title = gift.name+' - Givetu';  
+      $rootScope.fb_image = gift.image;  
+      $rootScope.fb_description = gift.description;
+      console.log($rootScope);
     });
 
   };

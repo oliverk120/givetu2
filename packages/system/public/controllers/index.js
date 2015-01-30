@@ -2,7 +2,7 @@
 
 angular.module('mean.system').controller('IndexController', ['$scope', '$rootScope', 'Global',
   function($scope, $rootScope, Global) {
-    $rootScope.title = 'Home - Givetu Romantic';  
+    $rootScope.fb_title = 'Home - Givetu Romantic';  
  
     $scope.global = Global;
  

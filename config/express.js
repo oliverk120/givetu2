@@ -33,6 +33,9 @@ module.exports = function(app, passport, db) {
   // cache=memory or swig dies in NODE_ENV=production
   app.locals.cache = 'memory';
 
+  // require prerender
+  app.use(require('prerender-node'));
+
   // Should be placed before express.static
   // To ensure that all assets and data are compressed (utilize bandwidth)
   app.use(compression({
