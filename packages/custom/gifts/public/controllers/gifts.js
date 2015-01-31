@@ -210,7 +210,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
     }, function(gift) {
       if('amazonid' in gift){
         if('affiliate' in gift){
-          gift.link = amazon_base_link + gift.amazonid + '/tag=' + gift.affiliate;
+          gift.link = amazon_base_link + gift.amazonid + '/?tag=' + gift.affiliate;
         } 
       }
       if('source' in gift){
