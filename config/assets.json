@@ -1,7 +1,11 @@
 {
   "core": {
     "css": {
-      "bower_components/build/css/dist.min.css": []
+      "bower_components/build/css/dist.min.css": [
+        "/packages/system/public/assets/css/common.css",
+        "/packages/custom/gifts/public/assets/css/gifts.css",
+        "/packages/contrib/mean-admin/public/assets/css/admin.css"
+      ]
     },
     "js": {
       "bower_components/build/js/dist.min.js": [

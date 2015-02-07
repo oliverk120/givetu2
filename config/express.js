@@ -89,7 +89,7 @@ module.exports = function(app, passport, db) {
     mean.aggregatedsrc('css', 'footer', onAggregatedSrc.bind(null,'footer','css',res,null));
     mean.aggregatedsrc('js', 'footer', onAggregatedSrc.bind(null,'footer','js',res,next));
   });
-
+  
   // Express/Mongo session storage
   app.use(session({
     secret: config.sessionSecret,

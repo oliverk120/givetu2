@@ -26,6 +26,7 @@ module.exports = {
     }
     */
   },
+  googleTrackingId:'UA-58633293-1',
   app: {
     name: 'Givetu - Romantic'
   },

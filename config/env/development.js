@@ -11,6 +11,7 @@ module.exports = {
   app: {
     name: 'Givetu - Romantic'
   },
+  googleTrackingId:'UA-58633293-1',
   facebook: {
     clientID: 'DEFAULT_APP_ID',
     clientSecret: 'APP_SECRET',
