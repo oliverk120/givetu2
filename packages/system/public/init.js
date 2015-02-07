@@ -11,6 +11,8 @@ angular.element(document).ready(function() {
 
 // Dynamically add angular modules declared by packages
 var packageModules = [];
+console.log(window.modules);
+
 for (var index in window.modules) {
   angular.module(window.modules[index].module, window.modules[index].angularDependencies || []);
   packageModules.push(window.modules[index].module);
@@ -22,3 +24,4 @@ modules = modules.concat(packageModules);
 
 // Combined modules
 angular.module('mean', modules);
+angular.module('mean.system', ['angulartics', 'angulartics.google.analytics']);
