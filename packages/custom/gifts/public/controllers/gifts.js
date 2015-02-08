@@ -32,7 +32,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
       var gender = ['M','F'];
       var assign_gifts =  function(){
         return function(gifts) {
-          console.log(gifts.length);
+          //console.log(gifts.length);
         };
       };
 
@@ -40,7 +40,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
 
         for(var j = 0; j<gender.length; j+=1){
               
-          console.log(priceRange[i].value);
+          //console.log(priceRange[i].value);
           price = priceRange[i].value.split('-'); 
           if(price[0]>0){
               //if there is a min price, add it to the query
@@ -48,7 +48,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
             }
           query.maxprice = price[1];
           query.togender = gender[j];
-          console.log(price, gender[j] + ':');
+          //console.log(price, gender[j] + ':');
           Gifts.query(query, assign_gifts());
         }
       }
@@ -88,7 +88,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
         query.level = $scope.level;
       }
       Gifts.query(query, function(gifts) {
-        console.log(gifts);
+        //console.log(gifts);
         //load the gifts up into the $scope gifts variable
         $scope.gifts = gifts;
         //load a list of id's to feed into the findOne view
@@ -165,7 +165,7 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
           }
         }
       } else {
-        console.log($scope.gift);
+        //console.log($scope.gift);
         $scope.gift.$remove(function(response) {
           $location.path('gifts');
         });
@@ -222,14 +222,14 @@ angular.module('mean.gifts').controller('GiftsController', ['$scope', '$state', 
       $rootScope.fb_title = gift.name+' - Givetu';  
       $rootScope.fb_image = gift.image;  
       $rootScope.fb_description = gift.description;
-      console.log($rootScope);
+      //console.log($rootScope);
     });
 
   };
 
   $scope.upload = function(){
     Images.upload({url:this.url}, function(result){
-      console.log(result);
+      //console.log(result);
       $scope.image = result.eager[0].url;
       $scope.uploaded = true;
     });    

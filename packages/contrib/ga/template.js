@@ -4,4 +4,4 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', '__TRACKING_ID__', 'auto');
-  //ga('send', 'pageview');
+  ga('send', 'pageview');
