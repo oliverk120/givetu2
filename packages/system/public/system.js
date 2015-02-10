@@ -1,7 +1,5 @@
 'use strict';
 
-angular.module('mean.system', ['angulartics', 'angulartics.google.analytics']);
-
 angular.module('mean.system', ['ui.router', 'mean-factory-interceptor'])
   .run(['$rootScope', function($rootScope) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
