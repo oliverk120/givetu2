@@ -68,7 +68,8 @@
     "time-grunt": "^1.0.0",
     "view-helpers": "0.1.5",
     "cloudinary": "^1.1.1",
-    "prerender-node": "^1.2.0"
+    "prerender-node": "^1.2.0",
+    "newrelic": "^1.16.1"
   },
   "devDependencies": {
     "expect.js": "0.3.1",
