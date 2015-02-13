@@ -1,5 +1,7 @@
 'use strict';
 
+//performance monitoring
+require('newrelic');
 /**
  * Module dependencies.
  */
