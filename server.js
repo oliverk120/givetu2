@@ -1,5 +1,8 @@
 'use strict';
 
+//performance monitoring
+require('newrelic');
+
 // Requires meanio .
 var mean = require('meanio');
 var cluster = require('cluster');
