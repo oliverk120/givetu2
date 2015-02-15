@@ -36,11 +36,6 @@ if ((cluster.isMaster) && (process.execArgv.indexOf('--debug') < 0) && (process.
         workerId = cluster.worker.id;
     }
 
-    //performance monitoring
-    if (cluster.isWorker) {
-         require('newrelic');
-    }
-
 // Creates and serves mean application
     mean.serve({ workerid: workerId /* more options placeholder*/ }, function (app, config) {
         var port = config.https && config.https.port ? config.https.port : config.http.port;

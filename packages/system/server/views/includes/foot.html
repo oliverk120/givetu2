@@ -1,10 +1,19 @@
+<!--
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Givetu - Bottom -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0590032942409589"
+     data-ad-slot="5990547382"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+-->
+
 {% for file in aggregatedassets.footer.js %}
   <script type="text/javascript" src="{{file}}"></script>
 {% endfor %}
-
-
-<!-- Google Analytics Script-->
-
 
 
 {% if (process.env.NODE_ENV == 'development') %}
